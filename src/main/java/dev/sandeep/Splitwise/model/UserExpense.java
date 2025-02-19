@@ -16,6 +16,30 @@ public class UserExpense extends BaseModel{
     private double amount;
     @Enumerated(EnumType.STRING)
     private UserExpenseType expenseType;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public UserExpenseType getExpenseType() {
+        return expenseType;
+    }
+
+    public void setExpenseType(UserExpenseType expenseType) {
+        this.expenseType = expenseType;
+    }
 }
 
 /*

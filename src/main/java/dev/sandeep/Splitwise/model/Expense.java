@@ -1,6 +1,7 @@
 package dev.sandeep.Splitwise.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -18,7 +19,40 @@ public class Expense extends BaseModel{
     @ManyToOne
     private User addedBy; // expense owner - who added the expense
     @OneToMany
-    private List<UserExpense> userExpenses; //ISSUE
+    @JoinColumn(name = "expense_id") // nameOfModel_nameOfPKAttribute -> expense_id
+    private List<UserExpense> userExpenses; //ISSUE :FIXED
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public User getAddedBy() {
+        return addedBy;
+    }
+
+    public void setAddedBy(User addedBy) {
+        this.addedBy = addedBy;
+    }
+
+    public List<UserExpense> getUserExpenses() {
+        return userExpenses;
+    }
+
+    public void setUserExpenses(List<UserExpense> userExpenses) {
+        this.userExpenses = userExpenses;
+    }
 }
 
 
@@ -48,3 +82,4 @@ public class Expense extends BaseModel{
 
     Expense - UserExpense :: 1:M
  */
+// 10:12 PM break
